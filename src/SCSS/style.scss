@@ -1,0 +1,183 @@
+@use 'variables';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Intel One Mono', monospace;
+}
+
+body {
+	min-height: 100dvh;
+	background-color: variables.$accentColor;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#app {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.container {
+		max-width: 500px;
+		width: 100%;
+		height: 314px;
+		padding: 2rem;
+		background-color: variables.$LightGrayColor;
+		border-radius: 12px;
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+		transition: 300ms ease;
+
+		.upload-box {
+			cursor: pointer;
+			width: 100%;
+			border: 2px dotted variables.$lightGray;
+			height: 250px;
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+
+			img {
+				width: 60px;
+			}
+
+			p {
+				font-size: 1.3rem;
+				color: variables.$backgroundColor;
+			}
+		}
+
+		.content {
+			opacity: 0;
+			pointer-events: none;
+			visibility: hidden;
+
+			.row-sizes {
+				margin-top: 2rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 2rem;
+				margin-bottom: 2rem;
+
+				.column {
+					text-align: start;
+
+					label {
+						font-size: 1.1rem;
+						color: variables.$backgroundColor;
+					}
+
+					input {
+						width: 100%;
+						margin-top: 5px;
+						padding: 10px;
+						border: 1px solid variables.$lightGray;
+						outline: none;
+						transition: 300ms ease;
+						color: variables.$backgroundColor;
+						font-size: 1.1rem;
+						font-weight: 600;
+
+						&:hover,
+						&:focus {
+							border: 1px solid variables.$backgroundColor;
+						}
+					}
+				}
+			}
+
+			.row-checkboxes {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2rem;
+
+				.column {
+					label {
+						display: flex;
+						align-items: center;
+						gap: 0.7rem;
+						cursor: pointer;
+
+						input {
+							display: none;
+						}
+
+						.checkmark {
+							position: relative;
+							width: 20px;
+							height: 20px;
+							border: 2px solid variables.$lightGray;
+							border-radius: 4px;
+							transition: all 0.2s;
+						}
+
+						input:checked + .checkmark {
+							background-color: variables.$accentColor;
+							border-color: variables.$accentColor;
+
+							&::after {
+								content: '\2713';
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								transform: translateX(-50%) translateY(-50%);
+								color: variables.$WhiteColor;
+								font-weight: 900;
+							}
+						}
+					}
+				}
+			}
+
+			.download-btn {
+				cursor: pointer;
+				padding: 10px 20px;
+				background-color: variables.$accentColor;
+				border: none;
+				outline: none;
+				border-radius: 4px;
+				transition: 300ms ease;
+				width: 100%;
+				color: variables.$WhiteColor;
+				text-transform: uppercase;
+				font-size: 1.1rem;
+
+				&:hover {
+					background-color: variables.$accentColorHover;
+				}
+			}
+		}
+
+		&.active {
+			height: 551px;
+
+			.upload-box {
+				border: none;
+				img {
+					width: 100%;
+					height: 100%;
+					border-radius: 8px;
+				}
+
+				p {
+					display: none;
+				}
+			}
+
+			.content {
+				pointer-events: all;
+				opacity: 1;
+				visibility: visible;
+				transition: opacity 0.3s ease;
+			}
+		}
+	}
+}
