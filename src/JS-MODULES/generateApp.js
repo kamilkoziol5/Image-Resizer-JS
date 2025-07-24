@@ -5,7 +5,7 @@ export default function generateApp() {
 	div.innerHTML = `
     	<div class="upload-box">
 				<input type="file" accept="image/*" hidden />
-					<img src="src/images/upload.png" alt="" />
+					<img src="images/upload.png" alt="" />
 					<p>Browse Files to Upload</p>
 				</div>
 				<div class="content">
