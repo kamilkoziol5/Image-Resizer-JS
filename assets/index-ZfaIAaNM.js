@@ -1,7 +1,7 @@
 (function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))o(e);new MutationObserver(e=>{for(const t of e)if(t.type==="childList")for(const c of t.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&o(c)}).observe(document,{childList:!0,subtree:!0});function r(e){const t={};return e.integrity&&(t.integrity=e.integrity),e.referrerPolicy&&(t.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?t.credentials="include":e.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function o(e){if(e.ep)return;e.ep=!0;const t=r(e);fetch(e.href,t)}})();function d(){const i=document.querySelector("#app"),n=document.createElement("div");n.classList.add("container"),n.innerHTML=`
     	<div class="upload-box">
 				<input type="file" accept="image/*" hidden />
-					<img src="src/images/upload.png" alt="" />
+					<img src="images/upload.png" alt="" />
 					<p>Browse Files to Upload</p>
 				</div>
 				<div class="content">
